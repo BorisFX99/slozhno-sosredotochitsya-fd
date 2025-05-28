@@ -81,7 +81,7 @@
   }
 
   .content__section-article-reasons
-  .content__section-article-list{
+  .content__section-article-list {
     grid-column: 1/-1;
     grid-row: 2;
     display: grid;
