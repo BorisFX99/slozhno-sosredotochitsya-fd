@@ -5,6 +5,17 @@
 */
 
 :root.theme-dark {
+  --bg-image:url(../images/cover-image-dark.png);
+  --decorate-color:#ff0070;
+  --record-display:block;
+  --hero-title-color:#db00ff;
+  --text-color:#f1b2ce;
+  --accent-color:#ff0070;
+  --heading-title-color:#ff0070;
+  --title-color:#000028;
+  --header-btn-color:#ff0070;
+  --hover-button-outline:rgb(255 0 112 / 0.4);
+
   /* сохраните этот селектор в приведённом виде.
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя

@@ -1,12 +1,16 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
- /* сохраните в разметке и стилях класс page у тега body. 
+ /* сохраните в разметке и стилях класс page у тега body.
  Он удобен, чтобы составлять селекторы для разных цветовых тем. */
 
  .page {
   font-family: var(--main-font, sans-serif);
   color: var(--text-color, #f1b2ce);
-  font-size: var(--text-font-size);
- 
+  font-size: var(--main-font-size, 18px);
+  background-image:var(--bg-image, url(../images/cover-image-dark.png));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .header {
@@ -15,34 +19,30 @@
   align-items: center;
   grid-template-rows: 1fr min-content 1fr;
   block-size: 100dvh;
-  padding-block: 10px;
-  padding-inline: 10px;
+  padding-block: var(--padding-block, 10px);
+  padding-inline: var(--padding-inline, 10px);
   min-height: 668px;
 }
 
-.header::before {
+.decorated-zone::before {
   content: '';
   position: absolute;
   height: 25px;
   aspect-ratio: 1;
-  top:9px;
-  right: 9px;
-  border-right: 1px solid var(--accent-color);
-  border-top: 1px solid var(--accent-color);
+  top:10px;
+  right: 10px;
+  box-shadow: 1px -1px 0  var(--decorate-color ,#ff0070);
 }
 
-.header::after {
+.decorated-zone::after {
   content: '';
   position: absolute;
   height: 25px;
   aspect-ratio: 1;
   bottom:11px;
   left: 11px;
-  border-left: 1px solid var(--accent-color);
-  border-bottom: 1px solid var(--accent-color);
+  box-shadow: -1px 1px 0  var(--decorate-color ,#ff0070);
 }
-
-
 
 .header__theme-menu {
   justify-self: end;
@@ -55,48 +55,185 @@
 }
 
 .header__theme-menu-button {
+  color:var(--header-btn-color,#ff0070);
+  padding-block: 1px;
   padding-inline: 13px;
   background-color: transparent;
   text-transform: lowercase;
 }
 
+.header__theme-menu-button:not(.header__theme-menu-button_active) {
+  cursor: pointer;
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: none;
+  box-shadow: 0 1px 0 var(--header-btn-color,#ff0070);
+}
+
+.header__theme-menu-button:hover:not(.header__theme-menu-button_active) {
+  outline: 1px solid var(--hover-button-outline, rgb(255 0 112 / 0.4));
+}
+
+
 .header__theme-menu-button_active {
-  outline: 1px solid var(--accent-color);
+  outline: 1px solid var(--header-btn-color, #ff0070);
+  pointer-events: none;
+}
+
+.hero-title {
+  font-size: var(--hero-title-size, clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem));
+  font-weight: 700;
+  line-height: 82.5%;
+  text-transform: lowercase;
+  color: var(--hero-title-color, #db00ff);
 }
 
 .header__title {
-  font-size: 116px;
-  font-weight: 700;
-  line-height: 82.5%;
-  color: var(--hero-title-color);
-  text-transform: lowercase;
-  text-shadow: 4px 4px 0px var(--accent-color);
+  text-shadow: 4px 4px 0 var(--accent-color, #ff0070);
 }
 
 .header__subtitle {
-  font-size: 18px;
+  font-size: var(--main-font-size, 18px);
   line-height: 130%;
-  color: var(--title-color);
-  background-color: var(--accent-color);
+  color: var(--title-color,#000028);
+}
+
+.title-decor {
+  background-color: var(--accent-color, #ff0070);
 }
 
 .header__record-element {
   position: absolute;
   top: 10px;
-  right: 38px; 
-  color: var(--accent-color);
+  right: 38px;
+  color: var(--accent-color, #ff0070);
   text-transform: uppercase;
+  display:var(--record-display, block);
 }
 
 .header__record-element::after {
-    content: '';
-    position: absolute;
-    height: 9px;
-    aspect-ratio: 1;
-    top: 6px;
-    right: -20px;
-    background-color: var(--accent-color);
-    border-radius: 50%;
-    box-shadow: 0px 0px 4px 2px var(--accent-color);
+  content: '';
+  position: absolute;
+  height: 9px;
+  aspect-ratio: 1;
+  top: 6px;
+  right: -20px;
+  background-color: var(--accent-color, #ff0070);
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--accent-color, #ff0070);
 }
 
+/* Main content */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-block: 40px;
+  padding-inline: var(--padding-inline, 10px);
+}
+
+.content__section-link {
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
+}
+
+
+.content__section-link:focus {
+  outline: none;
+}
+
+.content__section-link:focus-visible {
+  outline: 1px solid var(--text-color, #f1b2ce);
+}
+
+.content__section-link:hover {
+  border-bottom:1px solid  var(--text-color, #f1b2ce);
+}
+
+.content__section-article {
+  display: grid;
+  gap:20px;
+}
+
+.content__section-heading-title {
+  font-size: var(--main-font-size, 18px);
+  line-height: 130%;
+  color: var(--heading-title-color, #ff0070);
+}
+
+.content__section-title {
+  font-size: var(--main-font-size, 18px);
+  line-height: 130%;
+  color: var(--accent-color, #ff0070);
+}
+
+.content__section-article-list {
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+}
+
+.content__section-article-list-item {
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+
+.content__section-subtitle {
+  color: var(--title-color, #000028);
+  font-size: var(--main-font-size, 18px);
+}
+
+.content__section-text {
+  line-height: 130%;
+}
+
+.content__section-title-list {
+  margin-block-end:20px ;
+  color: var(--title-color, #000028);
+}
+
+.content__section-article-advice
+.content__section-article-list li > h4 {
+  font-weight: 400;
+}
+
+/* Section Gallery */
+
+.content__section-gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.content__section-gallery-item {
+  margin: 0;
+}
+
+.content__section-gallery-image {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.footer {
+  min-height: 668px;
+  position: relative;
+  display: grid;
+  align-items: center;
+  block-size: 100dvh;
+  padding-block: var(--padding-block, 10px);
+  padding-inline: var(--padding-inline, 10px);
+}
+
+.footer__title {
+  text-align: center;
+  text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
+}
