@@ -3,7 +3,7 @@
  Он удобен, чтобы составлять селекторы для разных цветовых тем. */
 
  .page {
-  font-family: var(--main-font, sans-serif);
+  font-family: var(--main-font, sans-serif), Arial, sans-serif;
   color: var(--text-color, #f1b2ce);
   font-size: var(--main-font-size, 18px);
   background-image:var(--bg-image, url(../images/cover-image-dark.png));
