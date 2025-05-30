@@ -101,6 +101,7 @@
   font-size: var(--main-font-size, 18px);
   line-height: 130%;
   color: var(--title-color,#000028);
+  font-weight: 700;
 }
 
 .title-decor {
@@ -188,6 +189,7 @@
 .content__section-subtitle {
   color: var(--title-color, #000028);
   font-size: var(--main-font-size, 18px);
+  line-height: 130%;
 }
 
 .content__section-text {
